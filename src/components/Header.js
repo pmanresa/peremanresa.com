@@ -3,11 +3,9 @@ import Menu from './Menu';
 import styled from 'styled-components';
 
 const Header = (props) => {
-  // const [isHidden, setIsHidden] = useState(false);
-
   return (
     <Wrapper>
-      <Menu url={props.url} />
+      <Menu url={props.url} menu={props.menu} />
     </Wrapper>
   );
 };
@@ -17,9 +15,10 @@ const Wrapper = styled.header`
   height: ${(props) => props.theme.header.height}px;
   top: ${(props) => (props.hidden ? `-${props.theme.header.height}px` : 0)};
   box-sizing: border-box;
-  position: fixed;
+  position: flex;
+  justify-content: flex-end;
   width: 100%;
-  z-index: 9;
+  margin: 0;
 `;
 
 export default Header;

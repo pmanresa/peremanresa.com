@@ -2,14 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-const menu = [
-  { label: 'Home', slug: '/' },
-  { label: 'About', slug: '/about/' },
-  { label: 'Work', slug: '/work/' },
-  { label: 'Blog', slug: '/blog/' },
-  { label: 'Contact', slug: '/contact/' },
-];
-
 const MenuItem = ({ label, slug, isSelected, handleClickOpen }) => {
   return (
     <li>
@@ -21,6 +13,7 @@ const MenuItem = ({ label, slug, isSelected, handleClickOpen }) => {
 };
 
 const Menu = (props) => {
+  const menu = props.menu;
   const [isOpen, setIsOpen] = useState(true);
 
   const handleClickOpen = (event) => {
@@ -29,19 +22,17 @@ const Menu = (props) => {
 
   return (
     <Nav isOpen={isOpen}>
-      <FixedContainer>
-        <Ul isOpen={isOpen}>
-          {menu.map((item) => (
-            <MenuItem
-              key={item.slug}
-              label={item.label}
-              slug={item.slug}
-              isSelected={props.url === item.slug}
-              handleClickOpen={handleClickOpen}
-            />
-          ))}
-        </Ul>
-      </FixedContainer>
+      <Ul isOpen={isOpen}>
+        {menu.map((item) => (
+          <MenuItem
+            key={item.slug}
+            label={item.label}
+            slug={item.slug}
+            isSelected={props.url === item.slug}
+            handleClickOpen={handleClickOpen}
+          />
+        ))}
+      </Ul>
     </Nav>
   );
 };
@@ -56,10 +47,10 @@ const Nav = styled.nav`
   flex-grow: 1;
   align-items: right;
   position: relative;
+  justify-content: flex-end;
   right: auto;
   left: auto;
   height: auto;
-  z-index: 1030;
   transform: none;
   background-color: ${(props) => props.theme.menu.mobile.closed.bg};
 `;
@@ -76,13 +67,8 @@ const MenuLink = styled(Link)`
   color: ${(props) => (props.selected ? props.theme.menu.desktop.a.active.color : props.theme.menu.desktop.a.color)};
   &:hover {
     color: ${(props) => props.theme.menu.desktop.a.active.color};
+    text-decoration: none;
   }
-`;
-
-const FixedContainer = styled.div`
-  width: ${(props) => props.theme.maxWidth};
-  margin: 0 auto;
-  text-align: right;
 `;
 
 const Ul = styled.ul`

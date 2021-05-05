@@ -2,22 +2,23 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.peremanresa.com',
     title: 'Pere Manresa',
-    description: `This is Pere Manresa's personal website, where you can learn about investing and data science!`,
+    description: `Welcome! This is Pere Manresa's personal website. I like to write about Data Science, Machine Learning and Career.`,
     author: {
       name: 'Pere Manresa',
-      bio: `I\'m an Data Scientist at <a href="https://www.bcgdv.com">BCG Digital Ventures</a>. We invent, build and invest in startups with the world\'s most influential companies. I build high-performance products and teams.`,
+      bio: `I\'m a Data Scientist at <a href="https://www.bcgdv.com">BCG Digital Ventures</a>. We invent, build and invest in startups with the world\'s most influential companies. I build high-performance products and teams. I\'m a Data Scientist at <a href="https://www.bcgdv.com">BCG Digital Ventures</a>. We invent, build and invest in startups with the world\'s most influential companies. I build high-performance products and teams. I\'m a Data Scientist at <a href="https://www.bcgdv.com">BCG Digital Ventures</a>. We invent, build and invest in startups with the world\'s most influential companies. I build high-performance products and teams.`,
       homeCity: 'Berlin',
-      email: 'hello@peremanresa.com',
+      email: 'pmanresa93@gmail.com',
       twitter: 'peremanresa6',
       defaultLink: 'https://github.com/pmanresa',
     },
     sourceCodeLink: 'https://github.com/pmanresa/peremanresa.com',
     // disqusShortname: 'hugomagalhes',
     menu: [
-      { label: 'home', slug: '/' },
-      { label: 'about', slug: '/about/' },
-      { label: 'blog', slug: '/blog/' },
-      { label: 'contact', slug: '/contact/' },
+      { label: 'Home', slug: '/' },
+      { label: 'Writing', slug: '/writing/' },
+      // { label: 'Speaking', slug: '/speaking/' },
+      { label: 'About', slug: '/about/' },
+      // { label: 'Contact', slug: '/contact/' },
     ],
     contact: [
       {
@@ -25,12 +26,6 @@ module.exports = {
         value: 'pmanresa93@gmail.com',
         link: 'mailto:pmanresa93@gmail.com',
       },
-      // {
-      //   type: 'phone',
-      //   value: '+49 151 74477807',
-      //   country: 'de',
-      //   link: 'tel:+49 151 74477807',
-      // },
     ],
   },
   plugins: [
@@ -69,6 +64,13 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: 'carbon',
+              theme: 'blackboard',
+            },
+          },
         ],
       },
     },

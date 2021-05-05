@@ -4,9 +4,10 @@ description: 'This post lays out the main considerations and differences when in
 date: '2021-03-27'
 layout: post
 draft: false
-featured: true
+featured: false
 tags:
-  - investing
+  - tag 1
+  - tag 4
 # image: ./images/20190116.jpg
 ---
 

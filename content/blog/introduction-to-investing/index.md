@@ -6,8 +6,9 @@ layout: post
 draft: false
 featured: true
 tags:
-  - investing
-# image: ./images/20190116.jpg
+  - tag 1
+  - tag 2
+  - tag 3
 ---
 
 Topics to cover that are worth having a section:
@@ -22,3 +23,13 @@ Topics to cover that are worth having a section:
 - Suitable Index Funds for Europeans
 
 Interested in knowing more about the requirements for a fund to be awarded with the UCITS badge? This [article](https://www.justetf.com/de/news/etf/legal-structure-of-etfs-ucits.html) from justETF is an excellent read.
+
+This is another sentence with `inline-code` in it. Let's see `how that looks` ?
+
+```python
+def function(x):
+  """ this is a python function """
+  return x ** 2
+
+[lambda x: function(x) for i in range(10)]
+```

@@ -4,6 +4,11 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Header from './Header';
 import Footer from './Footer';
 import theme from '../themes/theme';
+import { IntlProvider } from 'react-intl';
+
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+
+deckDeckGoHighlightElement();
 
 const Layout = (props) => {
   const data = useStaticQuery(graphql`
@@ -14,6 +19,10 @@ const Layout = (props) => {
             name
           }
           sourceCodeLink
+          menu {
+            label
+            slug
+          }
         }
       }
     }
@@ -22,18 +31,20 @@ const Layout = (props) => {
   const homePath = `${__PATH_PREFIX__}/`;
   const isHome = location.pathname === homePath;
   const url = location.pathname;
-  const { author, sourceCodeLink } = data.site.siteMetadata;
+  const { author, sourceCodeLink, menu } = data.site.siteMetadata;
 
   return (
     <ThemeProvider theme={theme}>
-      <BodyContainer>
-        <Header isHome={isHome} url={url} />
-        <Container>
-          <main>{children}</main>
-        </Container>
-        <Footer author={author} sourceCodeLink={sourceCodeLink} />
-      </BodyContainer>
-      <GlobalStyle />
+      <IntlProvider locale="en">
+        <BodyContainer>
+          <Header isHome={isHome} url={url} menu={menu} />
+          <Container>
+            <main>{children}</main>
+          </Container>
+          <Footer author={author} sourceCodeLink={sourceCodeLink} />
+          <GlobalStyle />
+        </BodyContainer>
+      </IntlProvider>
     </ThemeProvider>
   );
 };
@@ -42,14 +53,19 @@ const BodyContainer = styled.div`
   font-family: ${(props) => props.theme.fonts.SansSerif};
   color: ${(props) => props.theme.color};
   background-color: ${(props) => props.theme.bg};
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow-x: hidden;
   font-feature-settings: 'calt' 1, 'clig' 1, 'dlig' 1, 'kern' 1, 'liga' 1, 'salt' 1;
   padding-top: ${(props) => props.theme.header.height}px;
 `;
 
 const Container = styled.section`
+  max-width: ${(props) => props.theme.maxWidth};
   padding: ${(props) => props.theme.padding};
   margin: ${(props) => props.theme.margin};
-  margin: '0 auto';
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -62,7 +78,7 @@ const GlobalStyle = createGlobalStyle`
     transition: all 0.2s;
     :hover {
       transition: all 0.2s;
-      color: ${(props) => props.theme.a.hover.color};
+      // color: ${(props) => props.theme.a.hover.color};
       text-decoration: ${(props) => props.theme.a.hover.textDecoration};
     }
   }

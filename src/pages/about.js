@@ -1,16 +1,42 @@
-import * as React from 'react';
-import { Link } from 'gatsby';
-
+import React from 'react';
+import { graphql } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const SecondPage = (props) => (
-  <Layout location={props.location}>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-);
+const AboutPage = (props) => {
+  const { bio, twitter } = props.data.site.siteMetadata.author;
 
-export default SecondPage;
+  return (
+    <Layout location={props.location}>
+      <SEO title="About" />
+      <StaticImage
+        layout="fixed"
+        formats={['AUTO', 'WEBP', 'AVIF']}
+        src="../images/profile-pic.png"
+        width={75}
+        height={75}
+        quality={95}
+        alt="Profile picture"
+      />
+      <span dangerouslySetInnerHTML={{ __html: bio }} />
+      <p>Longer bio here</p>
+      <p>Work Bio here</p>
+    </Layout>
+  );
+};
+
+export default AboutPage;
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        author {
+          bio
+          twitter
+        }
+      }
+    }
+  }
+`;

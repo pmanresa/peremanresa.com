@@ -3,10 +3,10 @@ import * as fonts from './fonts';
 const round = (x, n) => Math.round(x * (n * 10)) / (n * 10);
 const scaleN = (n) => round(Math.pow(1.2, n), 3);
 const scale = (n) => `${scaleN(n)}rem`;
-const headerHeight = 84;
+const headerHeight = 20;
 
 const brandColor = '#FF6464';
-const accent = ['#D2D7FF', '#F4F6FE', '#391695'];
+const accent = ['#66ACF4', '#F4F6FE', '#391695'];
 const dark = ['#21243D', '#1D212C', '#2A343E', '#747474'];
 const lightColors = ['#FFFFFF', '#FAFAFA', '#EFEFEF', '#D7D7D7'];
 
@@ -23,7 +23,6 @@ const colors = {
   green: '#00ab6b',
   darkGreen: '#038252',
   lightGreen: '#00ab6b2e',
-
   blackShades: ['#393E41'],
 };
 
@@ -34,7 +33,7 @@ const theme = {
   fonts,
   color: colors.black,
   bg: colors.white,
-  padding: `${scaleN(1)}rem ${scaleN(1)}rem ${scaleN(1)}rem ${scaleN(0)}rem`,
+  padding: `0 ${scaleN(2)}rem`,
   margin: `0 auto`,
   maxWidth: '71.25rem',
   borderRadius: '0.2rem',
@@ -51,7 +50,7 @@ const theme = {
     textDecoration: 'none',
     hover: {
       color: colors.accent[0],
-      // textDecoration: 'underline',
+      textDecoration: 'underline',
     },
   },
   header: {
@@ -114,7 +113,8 @@ const theme = {
       },
     },
     desktop: {
-      padding: `${scale(3.8)} ${scale(3)}`,
+      // padding: `${scale(3.8)} ${scale(3)}`,
+      padding: `0`,
       bg: 'transparent',
       a: {
         fontFamily: fonts.SansSerif,
@@ -185,11 +185,11 @@ const theme = {
   },
   blog: {
     author: {
-      fontFamily: fonts.SegoeUI,
+      fontFamily: fonts.Heebo,
       fontSize: scale(-0.7),
       lineHeight: scaleN(2),
       time: {
-        color: colors.dark[3],
+        color: colors.darkBlue,
       },
     },
     list: {
@@ -210,11 +210,11 @@ const theme = {
           backgroundColor: colors.blackShades[0],
         },
         title: {
-          fontFamily: fonts.SansSerif,
+          fontFamily: fonts.Helvetica,
           fontSize: scale(1.2),
           lineHeight: scaleN(1),
           margin: `0 0 ${scale(-0.8)}`,
-          color: colors.black,
+          color: colors.darkBlue,
           hover: {
             color: colors.brand,
           },
@@ -222,7 +222,7 @@ const theme = {
         text: {
           fontFamily: fonts.SansSerif,
           fontSize: scale(-0.3),
-          color: colors.black,
+          color: colors.darkBlue,
           lineHeight: scaleN(2),
           padding: `0`,
           margin: `0`,
@@ -231,15 +231,16 @@ const theme = {
     },
     post: {
       padding: '20px',
-      margin: `${scale(-2)} auto 0`,
+      margin: `${scale(8)} auto 0`,
       maxWidth: '46.25rem',
       header: {
-        fontFamily: fonts.SansSerif,
-        fontSize: '2.6rem',
+        fontFamily: fonts.Helvetica,
+        fontSize: '2.3rem',
         margin: `0 0 ${scale(4)}`,
       },
       content: {
-        fontFamily: fonts.SegoeUI,
+        fontFamily: fonts.SansSerif,
+        fontWeight: 100,
         code: {
           color: colors.white,
           fontSize: scale(1),

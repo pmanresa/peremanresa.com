@@ -35,7 +35,7 @@ const Bio = () => {
         <p>
           Written by <strong>{author.name}</strong>
         </p>
-        <p>{author?.bio || null}</p>
+        <span dangerouslySetInnerHTML={{ __html: author?.bio || null }} />
         <p>
           <a href={`https://twitter.com/${author?.twitter}`}>Follow me on Twitter!</a>
         </p>
