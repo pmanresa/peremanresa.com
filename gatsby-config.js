@@ -20,13 +20,11 @@ module.exports = {
       { label: 'About', slug: '/about/' },
       // { label: 'Contact', slug: '/contact/' },
     ],
-    contact: [
-      {
-        type: 'email',
-        value: 'pmanresa93@gmail.com',
-        link: 'mailto:pmanresa93@gmail.com',
-      },
-    ],
+    contact: {
+      type: 'email',
+      value: 'pmanresa93@gmail.com',
+      link: 'mailto:pmanresa93@gmail.com',
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

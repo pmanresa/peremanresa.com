@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Grid, Cell } from 'styled-css-grid';
 import { FaYoutube, FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { HiOutlineMail } from 'react-icons/hi';
 import Avatar from '../images/profile-pic.png';
 
 const Welcome = () => {
@@ -13,11 +14,15 @@ const Welcome = () => {
           author {
             bio
           }
+          contact {
+            link
+          }
         }
       }
     }
   `);
   const bio = data.site.siteMetadata.author.bio;
+  const emailLink = data.site.siteMetadata.contact.link;
 
   return (
     <div>
@@ -50,6 +55,11 @@ const Welcome = () => {
                   rel="noreferrer noopener"
                 >
                   <FaYoutube />
+                </AIcon>
+              </li>
+              <li>
+                <AIcon href={emailLink} target="_blank" rel="noreferrer noopener">
+                  <HiOutlineMail />
                 </AIcon>
               </li>
             </SocialLinks>

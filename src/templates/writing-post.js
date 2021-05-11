@@ -58,6 +58,13 @@ const BlogPostTemplate = ({ data, location }) => {
           </li>
         </ul>
       </nav>
+      {/* <Disqus
+        config={
+            url: location,
+            identifier: location,
+            title: post.frontmatter.title
+          }
+      /> */}
     </Layout>
   );
 };
