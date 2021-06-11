@@ -14,7 +14,7 @@ module.exports = {
     sourceCodeLink: 'https://github.com/pmanresa/peremanresa.com',
     // disqusShortname: 'hugomagalhes',
     menu: [
-      { label: 'Home', slug: '/' },
+      // { label: 'Home', slug: '/' },
       { label: 'Writing', slug: '/writing/' },
       // { label: 'Speaking', slug: '/speaking/' },
       { label: 'About', slug: '/about/' },
@@ -62,13 +62,6 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-          {
-            resolve: `gatsby-remark-highlight-code`,
-            options: {
-              terminal: 'carbon',
-              theme: 'blackboard',
-            },
-          },
         ],
       },
     },
@@ -92,10 +85,6 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-gatsby-cloud`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
     'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-plugin-google-fonts`,

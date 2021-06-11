@@ -40,14 +40,14 @@ const Menu = (props) => {
 const Nav = styled.nav`
   text-align: right;
   top: 0;
-  width: 100%;
+  // width: 100%;
   box-sizing: border-box;
   padding: ${(props) => props.theme.menu.desktop.padding};
   display: flex;
-  flex-grow: 1;
+  // flex-grow: 1;
   align-items: right;
-  position: relative;
-  justify-content: flex-end;
+  // position: relative;
+  // justify-content: flex-end;
   right: auto;
   left: auto;
   height: auto;
@@ -61,7 +61,6 @@ const MenuLink = styled(Link)`
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 29px;
   text-align: right;
   padding: ${(props) => props.theme.menu.desktop.a.padding};
   color: ${(props) => (props.selected ? props.theme.menu.desktop.a.active.color : props.theme.menu.desktop.a.color)};

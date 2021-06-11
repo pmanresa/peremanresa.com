@@ -3,7 +3,7 @@ import * as fonts from './fonts';
 const round = (x, n) => Math.round(x * (n * 10)) / (n * 10);
 const scaleN = (n) => round(Math.pow(1.2, n), 3);
 const scale = (n) => `${scaleN(n)}rem`;
-const headerHeight = 20;
+const headerHeight = 98;
 
 const brandColor = '#FF6464';
 const accent = ['#66ACF4', '#F4F6FE', '#391695'];
@@ -185,7 +185,7 @@ const theme = {
   },
   blog: {
     author: {
-      fontFamily: fonts.Heebo,
+      fontFamily: fonts.System,
       fontSize: scale(-0.7),
       lineHeight: scaleN(2),
       time: {

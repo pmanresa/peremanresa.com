@@ -1,10 +1,10 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import { Grid, Cell } from 'styled-css-grid';
 import { FaYoutube, FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
-import Avatar from '../images/profile-pic.png';
+import WelcomePicture from '../images/welcome_picture.png';
+import { hidden, media, visible } from '../themes/responsive';
 
 const Welcome = () => {
   const data = useStaticQuery(graphql`
@@ -27,7 +27,6 @@ const Welcome = () => {
   return (
     <div>
       <Wrapper>
-        <LeftGapCell />
         <BioWrapper middle>
           <BioContainer>
             <Name>👋 Hi! I'm Pere Manresa</Name>
@@ -66,31 +65,35 @@ const Welcome = () => {
           </BioContainer>
         </BioWrapper>
         <PictureContainer center>
-          <ProfilePicture src={Avatar} alt="Hugo Nogueira" width={410} height={341} />
+          <ProfilePicture src={WelcomePicture} alt="Pere Manresa" width="165" height="165" />
         </PictureContainer>
-        <RightGapCell />
         <div></div>
       </Wrapper>
     </div>
   );
 };
 
-const Wrapper = styled(Grid)`
+const Wrapper = styled.div`
   margin: ${(props) => props.theme.welcome.margin};
   font-family: ${(props) => props.theme.blog.author.fontFamily};
   font-size: ${(props) => props.theme.blog.author.fontSize};
   line-height: ${(props) => props.theme.blog.author.lineHeight};
   height: auto;
-  grid-auto-flow: row dense;
-  grid-auto-rows: minmax(20px, auto);
-  grid-template-columns: auto 4.2rem 4.2rem auto;
-  grid-gap: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column-reverse;
+
+  ${media.md`
+    flex-direction: row;
+  `};
 `;
 
-const BioWrapper = styled(Cell)`
-  grid-column: 1 / span 4;
-  grid-row: 2 / span 1;
-  text-align: left;
+const BioWrapper = styled.div`
+  padding-right: 0;
+  ${media.md`
+    padding-right: 150px;
+  `};
 `;
 
 const BioContainer = styled.div`
@@ -107,16 +110,17 @@ const SocialLinks = styled.ul`
   }
 `;
 
-const PictureContainer = styled(Cell)`
-  position: relative;
+const PictureContainer = styled.div`
+  width: 165px;
+  /* position: relative;
   grid-column: 2 / span 2;
-  grid-row: 1 / span 1;
+  grid-row: 1 / span 1; */
   // border-radius: 50%;
 `;
 
 const ProfilePicture = styled.img`
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   border-radius: 50%;
 `;
 
@@ -133,16 +137,6 @@ const AIcon = styled.a`
     color: ${(props) => props.theme.socialLinks.a.hover.color};
     transition: 0.3s;
   }
-`;
-
-const LeftGapCell = styled(Cell)`
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 1;
-`;
-
-const RightGapCell = styled(Cell)`
-  grid-column: 4 / span 1;
-  grid-row: 1 / span 1;
 `;
 
 const Name = styled.div`

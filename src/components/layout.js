@@ -6,10 +6,6 @@ import Footer from './Footer';
 import theme from '../themes/theme';
 import { IntlProvider } from 'react-intl';
 
-import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
-
-deckDeckGoHighlightElement();
-
 const Layout = (props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -37,8 +33,8 @@ const Layout = (props) => {
     <ThemeProvider theme={theme}>
       <IntlProvider locale="en">
         <BodyContainer>
-          <Header isHome={isHome} url={url} menu={menu} />
           <Container>
+            <Header isHome={isHome} url={url} menu={menu} />
             <main>{children}</main>
           </Container>
           <Footer author={author} sourceCodeLink={sourceCodeLink} />
@@ -50,7 +46,7 @@ const Layout = (props) => {
 };
 
 const BodyContainer = styled.div`
-  font-family: ${(props) => props.theme.fonts.SansSerif};
+  font-family: ${(props) => props.theme.fonts.System};
   color: ${(props) => props.theme.color};
   background-color: ${(props) => props.theme.bg};
   top: 0;
@@ -59,7 +55,6 @@ const BodyContainer = styled.div`
   bottom: 0;
   overflow-x: hidden;
   font-feature-settings: 'calt' 1, 'clig' 1, 'dlig' 1, 'kern' 1, 'liga' 1, 'salt' 1;
-  padding-top: ${(props) => props.theme.header.height}px;
 `;
 
 const Container = styled.section`

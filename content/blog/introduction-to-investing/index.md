@@ -26,7 +26,7 @@ Interested in knowing more about the requirements for a fund to be awarded with 
 
 This is another sentence with `inline-code` in it. Let's see `how that looks` ?
 
-```python
+```javascript
 def function(x):
   """ this is a python function """
   return x ** 2
