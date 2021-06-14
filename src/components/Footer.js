@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Footer = ({ sourceCodeLink }) => {
   return (
@@ -55,6 +55,7 @@ const Wrapper = styled.footer`
   line-height: 21px;
   text-align: center;
   border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+  margin-top: 2rem;
   padding: 10px 30px;
   color: ${({ theme }) => theme.colors.darkBlue};
 `;

@@ -38,30 +38,18 @@ const Menu = (props) => {
 };
 
 const Nav = styled.nav`
-  text-align: right;
-  top: 0;
-  // width: 100%;
-  box-sizing: border-box;
   padding: ${(props) => props.theme.menu.desktop.padding};
   display: flex;
-  // flex-grow: 1;
   align-items: right;
-  // position: relative;
-  // justify-content: flex-end;
-  right: auto;
-  left: auto;
-  height: auto;
-  transform: none;
   background-color: ${(props) => props.theme.menu.mobile.closed.bg};
 `;
 
 const MenuLink = styled(Link)`
-  display: inline;
   font-family: ${(props) => props.theme.menu.desktop.a.fontFamily};
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  text-align: right;
+  font-weight: ${(props) => props.theme.menu.desktop.a.fontWeight};
+  font-size: ${(props) => props.theme.menu.desktop.a.fontSize};
+  text-align: ${(props) => props.theme.menu.desktop.a.textAlign};
+  display: inline;
   padding: ${(props) => props.theme.menu.desktop.a.padding};
   color: ${(props) => (props.selected ? props.theme.menu.desktop.a.active.color : props.theme.menu.desktop.a.color)};
   &:hover {

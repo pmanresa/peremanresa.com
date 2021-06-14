@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { FormattedDate } from 'react-intl';
+import styled from 'styled-components';
 
 const HomePostListItem = ({ id, slug, date, title }) => (
-  <li key={id}>
-    <Link to={slug} itemProp="url">
-      <FormattedDate value={new Date(date)} day="2-digit" month="short" year="numeric" />
+  <Li key={id}>
+    <PostLink to={slug} itemProp="url">
+      <StyledDate>
+        <FormattedDate value={new Date(date)} day="2-digit" month="short" year="numeric" />
+      </StyledDate>
       {' • '}
-      {title}
-    </Link>
-  </li>
+      <Title>{title}</Title>
+    </PostLink>
+  </Li>
 );
 
 const HomePostList = (props) => {
@@ -19,7 +22,7 @@ const HomePostList = (props) => {
   return (
     <div>
       <h3>{title}</h3>
-      <ul>
+      <Ul>
         {posts.map((post) => (
           <HomePostListItem
             id={title + post.fields.slug}
@@ -28,9 +31,36 @@ const HomePostList = (props) => {
             title={post.frontmatter.title}
           />
         ))}
-      </ul>
+      </Ul>
     </div>
   );
 };
+
+const StyledDate = styled.span`
+  font-family: ${(props) => props.theme.fonts.Mono};
+  font-weight: 300;
+`;
+
+const PostLink = styled(Link)`
+  color: ${(props) => props.theme.color};
+  &:hover {
+    color: ${(props) => props.theme.colors.brand};
+    text-decoration: none;
+    transition: 0.3s;
+  }
+`;
+
+const Ul = styled.ul`
+  list-style-type: none;
+  padding-inline-start: 32px;
+`;
+
+const Li = styled.li`
+  padding-bottom: 12px;
+`;
+
+const Title = styled.span`
+  font-size: 1.15rem;
+`;
 
 export default HomePostList;

@@ -14,7 +14,7 @@ const colors = {
   brand: brandColor,
   accent,
   white: '#FFFFFF',
-  black: '#000000',
+  black: '#21243D',
   dark,
   lightColors,
   red: '#FF0000',
@@ -34,8 +34,8 @@ const theme = {
   color: colors.black,
   bg: colors.white,
   padding: `0 ${scaleN(2)}rem`,
-  margin: `0 auto`,
-  maxWidth: '71.25rem',
+  margin: `0 auto`, // makes the body centered
+  maxWidth: '50rem',
   borderRadius: '0.2rem',
   lineHeight: 1.5,
   focus: {
@@ -55,6 +55,10 @@ const theme = {
   },
   header: {
     height: headerHeight,
+    logo: {
+      width: '91px',
+    },
+    paddingBottom: '4rem',
     title: {
       fontSize: scale(3),
       textAlign: 'left',
@@ -117,11 +121,11 @@ const theme = {
       padding: `0`,
       bg: 'transparent',
       a: {
-        fontFamily: fonts.SansSerif,
-        fontSize: scale(-0.5),
+        fontFamily: fonts.Heebo,
+        fontSize: '20px',
         fontWeight: 500,
         padding: `${scale(1)} ${scale(-0.4)}`,
-        textAlign: 'left',
+        textAlign: 'right',
         color: colors.black,
         active: {
           color: colors.brand,
@@ -152,6 +156,14 @@ const theme = {
     margin: 0,
     padding: `${scale(0)} 0`,
     backgroundColor: colors.accent[1],
+    fontFamily: fonts.System,
+    fontSize: '1.2rem',
+    lineHeight: scaleN(1.7),
+    greeting: {
+      fontFamily: fonts.Heebo,
+      fontSize: '2.5rem',
+      fontWeight: 600,
+    },
   },
   h1: {
     fontSize: scale(5.8),
@@ -231,16 +243,18 @@ const theme = {
     },
     post: {
       padding: '20px',
-      margin: `${scale(8)} auto 0`,
+      margin: `${scale(0.5)} auto 0`,
       maxWidth: '46.25rem',
       header: {
-        fontFamily: fonts.Helvetica,
+        fontFamily: fonts.Heebo,
         fontSize: '2.3rem',
-        margin: `0 0 ${scale(4)}`,
+        fontStretch: 'extra-condensed',
+        margin: `0 0 ${scale(0.5)}`,
       },
       content: {
         fontFamily: fonts.SansSerif,
-        fontWeight: 100,
+        fontWeight: 500,
+        lineHeight: 1.55,
         code: {
           color: colors.white,
           fontSize: scale(1),
@@ -262,9 +276,10 @@ const theme = {
           color: colors.green,
         },
         p: {
-          fontSize: scale(1),
+          fontSize: scale(0.8),
           margin: 0,
           padding: `2rem 0 0 0`,
+          lineHeight: '1.55',
         },
         ul: {
           fontSize: scale(1),
@@ -279,8 +294,8 @@ const theme = {
     margin: `${scale(0)} auto ${scale(4)}`,
     maxWidth: '60rem',
     header: {
-      fontFamily: fonts.SansSerif,
-      fontSize: '2.4rem',
+      fontFamily: fonts.Heebo,
+      fontSize: '2.6rem',
       margin: `0 0 ${scale(2)}`,
     },
     content: {

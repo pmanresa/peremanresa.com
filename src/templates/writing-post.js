@@ -14,13 +14,10 @@ const BlogPostTemplate = ({ data, location }) => {
   return (
     <Layout location={location}>
       <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
-      <Post
-        // className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
+      <Post itemScope itemType="http://schema.org/Article">
         <header>
           <H1 itemProp="headline">{post.frontmatter.title}</H1>
+          <SubHeadline>{post.frontmatter.description}</SubHeadline>
           <HeaderInfo>
             <FormattedDate value={new Date(post.frontmatter.date)} month="long" day="numeric" year="numeric" />
             {post.timeToRead && ` • ${formatReadingTime(post.timeToRead)}`}
@@ -79,10 +76,20 @@ const H1 = styled.h1`
   padding: 0;
   font-family: ${(props) => props.theme.blog.post.header.fontFamily};
   margin: ${(props) => props.theme.blog.post.header.margin};
+  font-stretch: ${(props) => props.theme.blog.post.header.fontStretch};
   font-size: ${(props) => props.theme.blog.post.header.fontSize};
 `;
 
+const SubHeadline = styled.div`
+  padding: 0;
+  font-family: ${(props) => props.theme.blog.post.header.fontFamily};
+  margin-bottom: 30px;
+  font-weight: 300;
+  font-size: 20px;
+`;
+
 const HeaderInfo = styled.div`
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
   font-size: 0.9rem;
   color: #8695a4;
 `;
@@ -90,6 +97,9 @@ const HeaderInfo = styled.div`
 const Content = styled.section`
   margin: 0 0 ${({ theme }) => theme.scale(6)} 0;
   font-family: ${(props) => props.theme.blog.post.content.fontFamily};
+  font-weight: ${(props) => props.theme.blog.post.content.fontWeight};
+  line-height: ${(props) => props.theme.blog.post.content.lineHeight};
+  font-size: ${(props) => props.theme.blog.post.content.fontSize};
   p > code {
     color: ${(props) => props.theme.blog.post.content.code.color};
     font-size: ${(props) => props.theme.blog.post.content.code.fontSize};
@@ -120,8 +130,8 @@ const Content = styled.section`
   p {
     margin: ${(props) => props.theme.blog.post.content.p.margin};
     padding: ${(props) => props.theme.blog.post.content.p.padding};
-    font-size: ${(props) => props.theme.p.fontSize};
-    line-height: ${(props) => props.theme.p.lineHeight};
+    font-size: ${(props) => props.theme.blog.post.content.p.fontSize};
+    line-height: ${(props) => props.theme.blog.post.content.p.lineHeight};
   }
 
   strong {

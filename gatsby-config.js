@@ -5,7 +5,7 @@ module.exports = {
     description: `Welcome! This is Pere Manresa's personal website. I like to write about Data Science, Machine Learning and Career.`,
     author: {
       name: 'Pere Manresa',
-      bio: `I\'m a Data Scientist at <a href="https://www.bcgdv.com">BCG Digital Ventures</a>. We invent, build and invest in startups with the world\'s most influential companies. I build high-performance products and teams. I\'m a Data Scientist at <a href="https://www.bcgdv.com">BCG Digital Ventures</a>. We invent, build and invest in startups with the world\'s most influential companies. I build high-performance products and teams. I\'m a Data Scientist at <a href="https://www.bcgdv.com">BCG Digital Ventures</a>. We invent, build and invest in startups with the world\'s most influential companies. I build high-performance products and teams.`,
+      bio: `I\'m a Data Scientist at <a href="https://www.bcgdv.com">BCG Digital Ventures</a>. We invent, build and invest in startups with the world\'s most influential companies. I build high-performance products and teams.`,
       homeCity: 'Berlin',
       email: 'pmanresa93@gmail.com',
       twitter: 'peremanresa6',
@@ -82,7 +82,7 @@ module.exports = {
         background_color: `white`,
         theme_color: `white`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo_tab.png`, // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-styled-components',

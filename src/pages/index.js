@@ -5,6 +5,8 @@ import Layout from '../components/layout';
 import Welcome from '../components/Welcome';
 import HomePostList from '../components/HomePostList';
 import SEO from '../components/seo';
+import styled from 'styled-components';
+import { media } from '../themes/responsive';
 
 const IndexPage = (props) => {
   const allPosts = props.data.all.edges.map((p) => p.node);
@@ -14,14 +16,19 @@ const IndexPage = (props) => {
     <Layout location={props.location}>
       <SEO title="Home" />
       <Welcome />
-      <HomePostList title="Recent posts" posts={allPosts} />
-      <HomePostList title="Featured posts" posts={featuredPosts} />
-      <Link to={'/writing/'} itemProp="url">
-        See all posts
-      </Link>
+      <HomePostList title="🔥 Featured posts" posts={featuredPosts} />
+      <HomePostList title="✍🏻 Latest posts" posts={allPosts} />
+      <StyledLink to={'/writing/'} itemProp="url">
+        View all posts
+      </StyledLink>
     </Layout>
   );
 };
+
+const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+`;
 
 export default IndexPage;
 

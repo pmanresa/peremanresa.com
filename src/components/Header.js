@@ -9,7 +9,7 @@ const Header = (props) => {
     <Wrapper>
       <LogoWrapper>
         <Link to="/">
-          <img src={Logo} width="91" />
+          <LogoImg src={Logo} />
         </Link>
       </LogoWrapper>
       <Menu url={props.url} menu={props.menu} />
@@ -17,18 +17,18 @@ const Header = (props) => {
   );
 };
 
+// LogoWrapper serves as a "div box container" for main Wrapper's flex justify-content: space-between to work
 const LogoWrapper = styled.div``;
 
+const LogoImg = styled.img`
+  width: ${(props) => props.theme.header.logo.width};
+`;
+
 const Wrapper = styled.header`
-  background: #ffffff;
-  height: ${(props) => props.theme.header.height}px;
-  top: ${(props) => (props.hidden ? `-${props.theme.header.height}px` : 0)};
-  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin: 0;
+  padding-bottom: ${(props) => props.theme.header.paddingBottom};
 `;
 
 export default Header;
