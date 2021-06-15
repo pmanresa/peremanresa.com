@@ -6,6 +6,8 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { FormattedDate } from 'react-intl';
 import { formatReadingTime } from '../utils/helpers';
+import WelcomePicture from '../images/welcome_picture.png';
+import { FaShareAlt } from 'react-icons/fa';
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark;
@@ -19,8 +21,25 @@ const BlogPostTemplate = ({ data, location }) => {
           <H1 itemProp="headline">{post.frontmatter.title}</H1>
           <SubHeadline>{post.frontmatter.description}</SubHeadline>
           <HeaderInfo>
-            <FormattedDate value={new Date(post.frontmatter.date)} month="long" day="numeric" year="numeric" />
-            {post.timeToRead && ` • ${formatReadingTime(post.timeToRead)}`}
+            <PictureAndShareContainer>
+              <PictureContainer>
+                <Link to="/about/">
+                  <ProfilePicture src={WelcomePicture} alt="Pere Manresa" width="47" />
+                </Link>
+                &nbsp; By&nbsp;
+                <AuthorLink to={'/about/'}>Pere Manresa</AuthorLink>
+              </PictureContainer>
+              <ShareContainer>
+                <ShareA>
+                  <FaShareAlt />
+                  &nbsp; Share
+                </ShareA>
+              </ShareContainer>
+            </PictureAndShareContainer>
+            <DetailsContainer>
+              <FormattedDate value={new Date(post.frontmatter.date)} month="long" day="numeric" year="numeric" />
+              {post.timeToRead && ` · ${formatReadingTime(post.timeToRead)}`}
+            </DetailsContainer>
           </HeaderInfo>
         </header>
         <Content itemProp="articleBody" dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -92,6 +111,62 @@ const HeaderInfo = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
   font-size: 0.9rem;
   color: #8695a4;
+`;
+
+const PictureContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+`;
+
+const PictureAndShareContainer = styled.div`
+  margin: 1rem 0;
+  color: ${(props) => props.theme.colors.black};
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const ShareContainer = styled.div`
+  display: flex;
+  align-items: center;
+  /* font-size: 1rem; */
+`;
+
+const ShareA = styled.a`
+  /* border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 4px; */
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    transition: 0.3s;
+    color: ${(props) => props.theme.colors.brand};
+    text-decoration: none;
+  }
+`;
+
+const ProfilePicture = styled.img`
+  border-radius: 50%;
+`;
+
+const AuthorLink = styled(Link)`
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    transition: 0.3s;
+    color: ${(props) => props.theme.colors.brand};
+    text-decoration: none;
+  }
+`;
+
+const DetailsContainer = styled.div`
+  font-weight: 300;
 `;
 
 const Content = styled.section`

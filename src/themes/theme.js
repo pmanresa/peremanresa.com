@@ -253,7 +253,7 @@ const theme = {
       },
       content: {
         fontFamily: fonts.SansSerif,
-        fontWeight: 500,
+        fontWeight: 400,
         lineHeight: 1.55,
         code: {
           color: colors.white,
