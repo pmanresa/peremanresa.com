@@ -254,7 +254,8 @@ const theme = {
       content: {
         fontFamily: fonts.SansSerif,
         fontWeight: 400,
-        lineHeight: 1.55,
+        lineHeight: 1.625,
+        letterSpacing: '-0.003em',
         code: {
           color: colors.white,
           fontSize: scale(1),
@@ -279,7 +280,7 @@ const theme = {
           fontSize: scale(0.8),
           margin: 0,
           padding: `2rem 0 0 0`,
-          lineHeight: '1.55',
+          lineHeight: '1.625',
         },
         ul: {
           fontSize: scale(1),

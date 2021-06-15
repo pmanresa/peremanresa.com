@@ -175,6 +175,7 @@ const Content = styled.section`
   font-weight: ${(props) => props.theme.blog.post.content.fontWeight};
   line-height: ${(props) => props.theme.blog.post.content.lineHeight};
   font-size: ${(props) => props.theme.blog.post.content.fontSize};
+  letter-spacing: ${(props) => props.theme.blog.post.content.letterSpacing};
   p > code {
     color: ${(props) => props.theme.blog.post.content.code.color};
     font-size: ${(props) => props.theme.blog.post.content.code.fontSize};
